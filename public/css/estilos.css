@@ -1,0 +1,42 @@
+.img-perfil img{
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    border-radius: 900px;
+}
+
+.card {
+    margin-top: 1rem ;
+}
+
+.img-rounded img {
+    width: 100%;
+}
+
+.img-rounded {
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+}
+
+.likes {
+    padding: 10px;
+}
+
+.toast-header > a {
+    color: #212529;
+}
+
+.likes img {
+    width: 20px;
+    height: 20px;
+}  
+
+.toast-footer {
+    margin-bottom: 0rem;
+    margin-top: 0.5rem;
+}
+
+.toast-footer > p {
+    margin-bottom: 0rem;
+    padding: 5px;
+}
