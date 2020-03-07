@@ -12,7 +12,7 @@ class Coment extends Model
         return $this->belongsTo('App\User', 'fk_users');
     }
 
-    public function Images(){
+    public function Image(){
         return $this->belongsTo('App\Image', 'fk_images');
     }
 }

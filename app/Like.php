@@ -8,11 +8,11 @@ class Like extends Model
 {
     protected $tables = 'likes';
 
-    public function Images(){
+    public function Image(){
         return $this->belongsTo('App\Image', 'fk_images');
     }
 
-    public function Users(){
+    public function User(){
         return $this->belongsTo('App\User', 'fk_users ');
     }
 }

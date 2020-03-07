@@ -50,7 +50,7 @@ class ImagenController extends Controller
         $img = Storage::disk('images')->get($imagen);
         return new Response($img, 200);
     }
-
+    
     public function detalle($id) {
         $image = Image::find($id);
         return view('imagen.detalle', [

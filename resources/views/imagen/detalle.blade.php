@@ -29,9 +29,26 @@
                                 <img src="{{ asset('img/heart-black.gif') }}" alt="">
                             </div>
                             <div class="coments">
-                                <a href="" class="btn btn-warning btn-sm">
-                                    Comentarios ({{ $image->coment }})
-                                </a>
+                                <h3>
+                                    Comentarios ({{ count($image->coment) }})
+                                </h3>
+                                <hr>
+                                <form method="POST" action="{{ route('coment.save') }}" >
+                                    @csrf
+                                    <input type="hidden" name="imagen" value="{{ $image->id }}">
+                                    <p>
+                                        <textarea type="text" name="content" class="form-control"></textarea>
+                                    </p>
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </form>
+                               @foreach ($image->coment as $coment)
+                               <div class="toast-footer comentarios shadow">
+                                    <img src="{{ route('config.avatar', $coment->user->image) }}" class="rounded mr-2" width="35" height="35">
+                                    <strong>{{ '@'.$coment->user->username.' |' }}<small>{{ ' Hace '.$coment->created_at->diffForHumans() }}</small></strong>
+                                    <p>{{ $coment->content }}</p>
+                                </div>
+                               @endforeach
+                               
                             </div>
                         </div>
                     </div>

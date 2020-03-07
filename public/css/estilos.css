@@ -19,7 +19,8 @@
 }
 
 .likes {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .toast-header > a {
@@ -39,4 +40,9 @@
 .toast-footer > p {
     margin-bottom: 0rem;
     padding: 5px;
+    padding-left: 0px;
+}
+
+.comentarios {
+    padding: 1rem;
 }

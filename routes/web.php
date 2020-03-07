@@ -22,3 +22,6 @@ Route::get('user/subir-imagen/', 'ImagenController@index')->name('imagen.index')
 Route::post('user/subir-imagen/', 'ImagenController@save')->name('imagen.save');
 Route::get('image/users/{avatar}', 'ImagenController@obtenerImagen')->name('imagen.imagen');
 Route::get('imagen/{id}', 'ImagenController@detalle')->name('imagen.detalle');
+Route::get('imagen/users/{id}', 'ImagenController@imagenUsuario')->name('imagen.imagenusuario');
+
+Route::post('comentario/', 'ComentController@save')->name('coment.save');

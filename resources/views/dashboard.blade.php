@@ -11,7 +11,7 @@
                     <div class="toast m-3">
                         <div class="toast-header">
                             <img src="{{ route('config.avatar', $image->user->image)}}" class="rounded mr-2" width="35" height="35">
-                            <a href="{{ route('imagen.detalle', ['id'=>$image->id]) }}" >
+                            <a href="{{ route('imagen.detalle', $image->id) }}" >
                                 <strong class="mr-auto">{{$image->user->name.' |' }}</strong>
                                 <small>{{ '@'.$image->user->username }}</small>
                             </a>
@@ -31,8 +31,8 @@
                                 <img src="{{ asset('img/heart-black.gif') }}" alt="">
                             </div>
                             <div class="coments">
-                                <a href="" class="btn btn-warning btn-sm">
-                                    Comentarios ({{ $image->coment }})
+                                <a href="{{ route('imagen.detalle', $image->id) }}" class="btn btn-warning btn-sm">
+                                    Comentarios ({{ count($image->coment) }})
                                 </a>
                             </div>
                         </div>

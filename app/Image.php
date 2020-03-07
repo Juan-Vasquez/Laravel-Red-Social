@@ -8,11 +8,11 @@ class Image extends Model
 {
     protected $table = 'images';
 
-    public function Coments(){
-        return $this->hasMany('App\Coment');
+    public function Coment(){
+        return $this->hasMany('App\Coment', 'fk_images')->orderBy('id', 'desc');
     }
 
-    public function Likes(){
+    public function Like(){
         return $this->hasMany('App\Like');
     }
 
