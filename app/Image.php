@@ -13,10 +13,11 @@ class Image extends Model
     }
 
     public function Like(){
-        return $this->hasMany('App\Like');
+        return $this->hasMany('App\Like', 'fk_images');
     }
 
     public function User(){
         return $this->belongsTo('App\User', 'fk_users');
     }
+
 }

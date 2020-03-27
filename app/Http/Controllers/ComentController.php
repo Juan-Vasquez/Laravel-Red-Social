@@ -12,6 +12,7 @@ class ComentController extends Controller
         $this->middleware('auth');
     }
 
+    //Guardar comentario
     public function save(Request $request){
 
         //Validacion de formulario
@@ -39,5 +40,17 @@ class ComentController extends Controller
 
     }
 
+    //Borrar comentarios
+    public function delete($id) {
+        //Obtener usuario autenticado
+        $user = Auth::user();
+        $coment = Coment::find($id);
+
+        if ($user && $coment->fk_users == $user->id || $coment->image->fk_users == $coment->id) {
+            $coment->delete();
+            return redirect()->route('imagen.detalle', ['id'=> $coment->image->id]);
+        }
+
+    }
 
 }

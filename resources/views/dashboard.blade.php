@@ -28,7 +28,20 @@
                                 <p>{{ $image->descripcion }}</p>
                             </div>
                             <div class="likes">
-                                <img src="{{ asset('img/heart-black.gif') }}" alt="">
+                                <!-- Sistema de likes -->
+                                <?php $likes = false; ?>
+                                @foreach ($image->like as $item)
+                                    @if ($item->fk_users == Auth::user()->id)
+                                        <?php $likes = true; ?>
+                                    @endif
+                                @endforeach
+
+                                @if ($likes)
+                                    <img src="{{ asset('img/heart-red.png') }}" class="btn-dislike" data-id="{{ $image->id }}"> {{ count($image->like) }}
+                                @else
+                                    <img src="{{ asset('img/heart-black.png') }}" class="btn-like" data-id="{{ $image->id }}"> {{ count($image->like) }}
+                                @endif
+                                <!-- ------------------------------------------------ -->
                             </div>
                             <div class="coments">
                                 <a href="{{ route('imagen.detalle', $image->id) }}" class="btn btn-warning btn-sm">
@@ -37,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  
             @endforeach
             <div class="clearfix"></div>
             {{ $images->links() }}

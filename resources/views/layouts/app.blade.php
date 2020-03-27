@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}" >
     <title>@yield('title')</title>
 
     <!-- Importacion de estilos css -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 
-    <!-- Importacion de JavaScript -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Importacion de icon -->
+    <link rel="icon" href="{{ asset('img/Instagram-logo.ico') }}">
 
 </head>
 <body>
@@ -63,6 +64,10 @@
     <div class="container">
         @yield('content')
     </div>
+
+  <!-- Importacion de JavaScript -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
     
 </body>
 </html>

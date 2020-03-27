@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Image;
 
 class ImagenController extends Controller
 {
@@ -57,5 +57,5 @@ class ImagenController extends Controller
             'image'=>$image
         ]);
     }
-
+    
 }

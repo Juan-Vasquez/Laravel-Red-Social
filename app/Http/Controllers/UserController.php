@@ -28,13 +28,15 @@ class UserController extends Controller
         $datos = $this->validate($request, [
             'name'=>'string|max:255|',
             'username'=>'string|max:255|unique:users,username,'.$id,
-            'email'=>'email|string|max:255|unique:users,email,'.$id
+            'email'=>'email|string|max:255|unique:users,email,'.$id,
+            'phone' => 'string|max:11'
         ]);
 
         //Capturando datos del formulario
         $name = $request->input('name');
         $username = $request->input('username');
         $email = $request->input('email');
+        $phone = $request->input('phone');
 
         //Subida de imagen
         $image = $request->file('file');
@@ -48,6 +50,7 @@ class UserController extends Controller
         $user->name = $name;
         $user->username = $username;
         $user->email = $email;
+        $user->phone = $phone;
 
         //Actualizando la informacion en BD
         $user->update();

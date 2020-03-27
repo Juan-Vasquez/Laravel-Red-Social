@@ -16,6 +16,7 @@
                         <li class="list-group-item"> Nombre: <span>{{ Auth::user()->name }}</span></li>
                         <li class="list-group-item">Usuario: <span>{{ Auth::user()->username }}</span></li>
                         <li class="list-group-item">Correo Electronico: <span>{{ Auth::user()->email }}</span></li>
+                        <li class="list-group-item">Telefono: <span>{{ Auth::user()->phone }}</span></li>
 
                     </ul>
                 </div>
@@ -40,6 +41,10 @@
                         <div class="form-group">
                             <label for="email">Correo Electronico</label>
                             <input type="email" name="email" placeholder="correo electronico" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefono</label>
+                            <input type="text" name="phone" id="phone" placeholder="Telefono/Celular" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="file">Imagen</label>
