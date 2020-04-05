@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Subir Imagen')
+
 @section('content')
 
     <div class="row justify-content-center mt-4">

@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    @auth
+    {{-- @auth
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a href="{{ route('dashboard.index') }}" class="navbar-brand">Dashboard</a>
@@ -46,7 +46,7 @@
                             {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu">
-                            <a href="" class="dropdown-item">Mi perfil</a>
+                            <a href="{{ route('user.perfil', ['user'=>Auth::user()->id]) }}" class="dropdown-item">Mi perfil</a>
                             <a href="{{ route('config') }}" class="dropdown-item">Configuracion</a>
                             <a 
                                 href="{{ route('logout') }}" 
@@ -59,7 +59,9 @@
                 </ul>
             </div>
         </nav>
-    @endauth
+    @endauth --}}
+
+    @include('layouts.navegacion')
 
     <div class="container">
         @yield('content')

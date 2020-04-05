@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'configuracion')
+
 @section('content')
 
     <div class="row justify-content-center">
@@ -32,19 +34,19 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">Nombre</label>
-                            <input type="name" name="name" placeholder="Nombre" class="form-control">
+                            <input type="name" name="name" placeholder="Nombre" class="form-control" value="{{ Auth::user()->name }}">
                         </div>
                         <div class="form-group">
                             <label for="username">Usuario</label>
-                            <input type="text" name="username" placeholder="usuario" class="form-control">
+                            <input type="text" name="username" placeholder="usuario" class="form-control" value="{{ Auth::user()->username }}">
                         </div>
                         <div class="form-group">
                             <label for="email">Correo Electronico</label>
-                            <input type="email" name="email" placeholder="correo electronico" class="form-control">
+                            <input type="email" name="email" placeholder="correo electronico" class="form-control" value="{{ Auth::user()->email }}">
                         </div>
                         <div class="form-group">
                             <label for="phone">Telefono</label>
-                            <input type="text" name="phone" id="phone" placeholder="Telefono/Celular" class="form-control">
+                            <input type="text" name="phone" id="phone" placeholder="Telefono/Celular" class="form-control" value="{{ Auth::user()->phone }}">
                         </div>
                         <div class="form-group">
                             <label for="file">Imagen</label>
