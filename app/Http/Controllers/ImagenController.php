@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Image;
+use App\Coment;
+use App\Like;
+
 
 class ImagenController extends Controller
 {
@@ -56,6 +59,57 @@ class ImagenController extends Controller
         return view('imagen.detalle', [
             'image'=>$image
         ]);
+    }
+
+    public function delete($id) {
+        $user = Auth::user();
+        $imagen = Image::find($id);
+        $coments = Coment::where('fk_images', $id)->get();
+        $likes = Like::where('fk_images', $id)->get();
+
+        if($user && $imagen->fk_users == $user->id) {
+            if($coments && count($coments) >= 1) {
+                foreach($coments as $coment){
+                    $coment->delete();
+                }
+            }
+
+            if($likes && count($likes) >= 1) {
+                foreach($likes as $like) {
+                    $like->delete();
+                }
+            }
+
+            Storage::disk('images')->delete($imagen->image_path);
+            $imagen->delete();
+        }
+        
+        return redirect()->route('dashboard.index');
+    }
+
+    public function update(Request $request){
+        $user = Auth::user();
+
+        //Validando formulario
+        $this->validate($request, [
+            'descripcion'=>'string'
+        ]);
+
+        //Capturando datos de formulario de actualizacion
+        $descripcion = $request->input('descripcion');
+        $image_id = $request->input('image_id');
+        $image = Image::find($image_id);
+
+        if(isset($image)) {
+            $image->descripcion = $descripcion;
+
+            $image->update();
+            return redirect()->route('imagen.detalle', $image_id)->with('message', 'Actualizacion exitosa');
+            
+        }
+
+
+
     }
     
 }

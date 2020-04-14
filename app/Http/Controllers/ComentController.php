@@ -46,7 +46,7 @@ class ComentController extends Controller
         $user = Auth::user();
         $coment = Coment::find($id);
 
-        if ($user && $coment->fk_users == $user->id || $coment->image->fk_users == $coment->id) {
+        if ($user && $coment->fk_users == $user->id || $coment->image->fk_users == $coment->id || $coment->fk_users != $user->id ) {
             $coment->delete();
             return redirect()->route('imagen.detalle', ['id'=> $coment->image->id]);
         }

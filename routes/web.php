@@ -19,10 +19,12 @@ Route::post('user/configuracion/update', 'UserController@update')->name('config.
 Route::get('user/configuracion/{avatar}', 'UserController@getImage')->name('config.avatar');
 
 Route::get('user/subir-imagen/', 'ImagenController@index')->name('imagen.index');
-Route::post('user/subir-imagen/', 'ImagenController@save')->name('imagen.save');
+Route::post('user/subir-imagen/imagen/', 'ImagenController@save')->name('imagen.save');
 
 Route::get('image/users/{avatar}', 'ImagenController@obtenerImagen')->name('imagen.imagen');
 Route::get('imagen/{id}', 'ImagenController@detalle')->name('imagen.detalle');
+Route::get('imagen/delete/{id}', 'ImagenController@delete')->name('imagen.delete');
+Route::post('imagen/update', 'ImagenController@update')->name('imagen.update');
 
 Route::post('comentario/', 'ComentController@save')->name('coment.save');
 Route::get('comentario/delete/{id}', 'ComentController@delete')->name('coment.delete');
