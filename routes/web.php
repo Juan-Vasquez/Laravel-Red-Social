@@ -14,6 +14,7 @@ Route::get('dashboard/', 'DashboardController@index')->name('dashboard.index');
 Route::post('logout', 'DashboardController@logout')->name('logout');
 
 Route::get('perfil/{id}', 'UserController@perfil')->name('user.perfil');
+Route::get('user/amigos', 'UserController@usuarios')->name('user.usuarios');
 Route::get('user/configuracion', 'UserController@index')->name('config');
 Route::post('user/configuracion/update', 'UserController@update')->name('config.update');
 Route::get('user/configuracion/{avatar}', 'UserController@getImage')->name('config.avatar');

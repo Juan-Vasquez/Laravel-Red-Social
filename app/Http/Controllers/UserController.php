@@ -71,4 +71,11 @@ class UserController extends Controller
         ]);
     }
 
+    public function usuarios() {
+        
+        return view('user.amigos', [
+            'users' => User::orderBy('id', 'desc')->paginate(4)
+        ]);
+    }
+
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Inicio')
 
 @section('content')
 
@@ -11,7 +11,7 @@
                     <div class="toast m-3">
                         <div class="toast-header">
                             <img src="{{ route('config.avatar', $image->user->image)}}" class="rounded mr-2" width="35" height="35">
-                            <a href="{{ route('imagen.detalle', $image->id) }}" >
+                            <a href="{{ route('user.perfil', $image->user->id) }}" >
                                 <strong class="mr-auto">{{$image->user->name.' |' }}</strong>
                                 <small>{{ '@'.$image->user->username }}</small>
                             </a>

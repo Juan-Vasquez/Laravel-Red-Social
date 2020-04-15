@@ -3,8 +3,23 @@
     color: #636b6f;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
+    font-size: 1rem;
     height: 100vh;
     margin: 0;
+}
+.navbar a {
+    font-size: 1.25rem !important;
+}
+
+#fondo-navegacion {
+    background: linear-gradient(-45deg,#EC5252 0%,#6E1A52 100%);
+}
+.navbar-dropdown a {
+    color: black !important;
+}
+
+#fondo-navegacion a {
+    color: seashell;
 }
 
 .full-height {
